@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://beyod0vlu84jr"]
+
+[ext_resource type="Script" uid="uid://bh83jeiu3erk2" path="res://Assets/Card.gd" id="1_hopd4"]
+[ext_resource type="Texture2D" uid="uid://ixsb47tfg6n8" path="res://Assets/Sprites/backcard.png" id="1_q4dv7"]
+
+[node name="Card" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 126.0
+offset_bottom = 176.0
+script = ExtResource("1_hopd4")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 126.0
+offset_bottom = 176.0
+texture = ExtResource("1_q4dv7")
+expand_mode = 1

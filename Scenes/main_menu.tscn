@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://clhw2rmb7p1g2"]
+[gd_scene load_steps=3 format=3 uid="uid://clhw2rmb7p1g2"]
 
 [ext_resource type="Script" uid="uid://dwq5w1ho7ps6n" path="res://Scripts/main_menu.gd" id="1_28flt"]
-[ext_resource type="Texture2D" uid="uid://ixsb47tfg6n8" path="res://Assets/Sprites/backcard.png" id="2_48xlc"]
 [ext_resource type="Script" uid="uid://db7n76ha2wwon" path="res://Scripts/deck.gd" id="4_ce3w2"]
 
 [node name="MainMenu" type="Control"]
@@ -92,6 +91,7 @@ text = "QUIT
 "
 
 [node name="DeckPanel" type="Panel" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -101,9 +101,10 @@ grow_vertical = 2
 
 [node name="CardInDeckPanel" type="Panel" parent="DeckPanel"]
 layout_mode = 1
-anchors_preset = 9
+anchors_preset = -1
+anchor_right = 0.312
 anchor_bottom = 1.0
-offset_right = 360.0
+offset_right = 0.575989
 grow_vertical = 2
 
 [node name="DeckListPanel" type="Panel" parent="DeckPanel"]
@@ -114,19 +115,24 @@ offset_left = 360.0
 offset_right = 1152.0
 grow_vertical = 2
 
-[node name="Card" type="Control" parent="."]
-anchors_preset = 0
-offset_right = 126.0
-offset_bottom = 176.0
-
-[node name="TextureRect" type="TextureRect" parent="Card"]
-layout_mode = 0
-offset_right = 126.0
-offset_bottom = 176.0
-texture = ExtResource("2_48xlc")
-expand_mode = 1
+[node name="BackButton" type="Button" parent="DeckPanel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -79.0
+offset_top = -88.0
+offset_right = 79.0
+offset_bottom = -19.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "BACK"
 
 [node name="Deck" type="Node" parent="."]
 script = ExtResource("4_ce3w2")
 
+[connection signal="pressed" from="MainMenuPanel/DeckButton" to="." method="_on_deck_button_pressed"]
 [connection signal="pressed" from="MainMenuPanel/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="DeckPanel/BackButton" to="." method="_on_back_button_pressed"]
